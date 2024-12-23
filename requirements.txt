@@ -1,10 +1,10 @@
 pypdf
 langchain
 langchain-community 
+langchain-openai
+langchain-chroma
 chromadb # Vector storage
 pytest
-boto3
-langchain-openai
 python-dotenv
 torch
 deepeval
