@@ -16,6 +16,7 @@ def test_monopoly_rules():
     test_case = query_and_generate_test_case(
         question="How much total money does a player start with in Monopoly? (Answer with the number only)",
         expected_response="$1500",
+        seed="fp_5f20662549"
     )
     answer_relevancy_metric = AnswerRelevancyMetric(threshold=1.0)
     assert_test(test_case, [answer_relevancy_metric])
@@ -44,7 +45,7 @@ def test_ticket_to_ride_rules():
     assert_test(test_case, [answer_relevancy_metric])
 
 
-def query_and_generate_test_case(question: str, expected_response: str) -> LLMTestCase:
+def query_and_generate_test_case(question: str, expected_response: str, seed: str = None) -> LLMTestCase:
     response_text, context = query_rag(question)
     return LLMTestCase(
         input=question,
