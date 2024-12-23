@@ -1,10 +1,14 @@
-from langchain_community.embeddings.ollama import OllamaEmbeddings
-from langchain_community.embeddings.bedrock import BedrockEmbeddings
+import os
+from dotenv import load_dotenv
+from langchain_openai import OpenAIEmbeddings
 
+load_dotenv()
 
 def get_embedding_function():
-    embeddings = BedrockEmbeddings(
-        credentials_profile_name="default", region_name="us-east-1"
-    )
-    # embeddings = OllamaEmbeddings(model="nomic-embed-text")
+    # Replace 'your-api-key' with your actual OpenAI API key
+    openai_api_key = os.getenv('OPENAI_API_KEY')
+    
+    # Create the OpenAIEmbeddings instance with your API key
+    embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key, base_url=os.getenv('OPENAI_BASE_URL'), model='codesmart.embedding')
+    
     return embeddings
