@@ -1,0 +1,23 @@
+[
+    {
+      "input": "In the Monopoly game, what happens when bank running out of money?",
+      "expected_output": "In the Monopoly game, if the Bank runs out of money, the Banker may recover it by issuing as much more money as needed by writing on any ordinary paper.",
+      "actual_output": "In the Monopoly game, if the Bank runs out of money, the Banker may recover it by issuing as much more money as needed by writing on any ordinary paper.",
+      "context":[],
+      "retrieval_context": []
+    },
+    {
+      "input": "How many types of train cards and colors are there in the ticket to ride game has? and how to use them?",
+      "context": ["Ticket to ride game: Train car cards are different colors and different types."],
+      "expected_output": "In the game Ticket to Ride, there are 8 types of regular Train Car cards, which are Purple, Blue, Orange, White, Green, Yellow, Black, and Red. Additionally, there are Locomotive cards that are multi-colored and act as wild cards.\n\nTo use these cards, a player follows these general rules:\n\n1. **Drawing Train Car Cards:** During their turn, a player may draw 2 Train Car cards. They can choose from the face-up cards or draw blindly from the top of the deck. If a face-up card is chosen, a new card from the deck immediately replaces it face-up.\n\n2. **Claiming a Route:** A player claims a route by playing a set of Train Car cards that match the color and length of the route on the board. Each space on the route must be covered with a card representing that color and setting. For example, a Blue route requires blue-colored Passenger Car cards. Gray-colored routes can be claimed using cards of any one color.\n\n3. **Using Locomotive Cards:** Locomotive cards are multi-colored wild cards that can be used as any color in a set when claiming a route. \n\nThese cards are used to strategically claim routes on the board and earn points throughout the game.",
+      "actual_output": "In the game Ticket to Ride, there are 8 types of regular Train Car cards, which are Purple, Blue, Orange, White, Green, Yellow, Black, and Red. Additionally, there are Locomotive cards that are multi-colored and act as wild cards.\n\nTo use these cards, a player follows these general rules:\n\n1. **Drawing Train Car Cards:** During their turn, a player may draw 2 Train Car cards. They can choose from the face-up cards or draw blindly from the top of the deck. If a face-up card is chosen, a new card from the deck immediately replaces it face-up.\n\n2. **Claiming a Route:** A player claims a route by playing a set of Train Car cards that match the color and length of the route on the board. Each space on the route must be covered with a card representing that color and setting. For example, a Blue route requires blue-colored Passenger Car cards. Gray-colored routes can be claimed using cards of any one color.\n\n3. **Using Locomotive Cards:** Locomotive cards are multi-colored wild cards that can be used as any color in a set when claiming a route. \n\nThese cards are used to strategically claim routes on the board and earn points throughout the game.",
+      "retrieval_context": []
+    },
+    {
+      "input": "on average, How much do hotels cost in Japan?",
+      "expected_output": "The provided context is about rules for buying and erecting hotels in a board game, not about the real-world cost of hotels in Japan. Therefore, the context does not offer any information regarding the average cost of hotels in Japan.",
+      "actual_output": "The provided context is about rules for buying and erecting hotels in a board game, not about the real-world cost of hotels in Japan. Therefore, the context does not offer any information regarding the average cost of hotels in Japan.",
+      "context":[],
+      "retrieval_context": []
+    }
+  ]
