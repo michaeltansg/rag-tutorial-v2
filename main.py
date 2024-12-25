@@ -10,6 +10,8 @@ from get_embedding_function import get_embedding_function
 
 load_dotenv()
 
+# To access Synthetic data Uncomment below line and comment chroma. Make sure You run test_goldens_synthesizer.py for populating the data.
+# CHROMA_PATH = ".vector_db"
 CHROMA_PATH = "chroma"
 
 PROMPT_TEMPLATE = """
