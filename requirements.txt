@@ -3,8 +3,11 @@ langchain
 langchain-community 
 langchain-openai
 langchain-chroma
-chromadb # Vector storage
+chromadb==0.4.18 # Vector storage
 pytest
 python-dotenv
 torch
 deepeval
+deepeval
+black
+pandas

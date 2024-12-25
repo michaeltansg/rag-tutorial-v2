@@ -10,3 +10,4 @@ chroma
 __pycache__
 .deepeval-cache.json
 .venv
+.vector_db
