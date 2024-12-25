@@ -10,6 +10,9 @@ from get_embedding_function import get_embedding_function
 
 load_dotenv()
 
+
+# To access Synthetic data Uncomment below line and comment chroma. Make sure You run test_goldens_synthesizer.py for populating the data.
+# CHROMA_PATH = ".vector_db"
 CHROMA_PATH = "chroma"
 
 PROMPT_TEMPLATE = """
@@ -61,8 +64,6 @@ def query_rag(query_text: str, seed: str = None):
 
     response_text: AIMessage = chat_model.invoke(input=prompt)
 
-    # answer = json.dumps(response_text, indent=4)
-    # print(answer)
     sources = [doc.metadata.get("id", None) for doc, _score in results]
     formatted_response = f"Response: {response_text}\nSources: {sources}"
     print(formatted_response)

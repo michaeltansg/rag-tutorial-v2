@@ -6,7 +6,10 @@ from deepeval.synthesizer.config import (
 )
 from deepeval.synthesizer.types import Evolution
 from pandas.core.frame import DataFrame
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 filtration_config = FiltrationConfig(
     max_quality_retries=4,
@@ -36,7 +39,7 @@ goldens = synthesizer.generate_goldens_from_docs(
     ],
     include_expected_output=True,
     context_construction_config=ContextConstructionConfig(
-        # embedder="text-embedding-ada-002",
+        embedder=os.getenv("EMBEDDING_MODEL", "text-embedding-ada-002"),
         chunk_size=800,
         chunk_overlap=80,
         max_contexts_per_document=5
