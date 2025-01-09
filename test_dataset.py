@@ -1,8 +1,8 @@
 from deepeval.metrics import (
     AnswerRelevancyMetric,
 )
-from deepeval.test_case import LLMTestCase
 from deepeval.dataset import EvaluationDataset
+import os
 
 
 dataset = EvaluationDataset()
@@ -17,5 +17,5 @@ dataset.add_test_cases_from_json_file(
     retrieval_context_key_name="retrieval_context",
 )
 
-answer_relevancy_metric = AnswerRelevancyMetric(threshold=0.5)
+answer_relevancy_metric = AnswerRelevancyMetric(threshold=0.5, model=os.get('INFERENCE_MODEL'))
 results = dataset.evaluate(metrics=[answer_relevancy_metric])

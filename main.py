@@ -5,8 +5,11 @@ from langchain_community.vectorstores.chroma import Chroma
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.messages import AIMessage
 from langchain_openai import ChatOpenAI
-
+from EvaluatedRAGChain import EvaluatedRAGChain
 from get_embedding_function import get_embedding_function
+from langfuse import Langfuse
+import asyncio
+from langchain.chains import LLMChain
 
 load_dotenv()
 
@@ -64,11 +67,32 @@ def query_rag(query_text: str, seed: str = None):
 
     response_text: AIMessage = chat_model.invoke(input=prompt)
 
+    asyncio.run(evaluation(chat_model=chat_model, 
+                           prompt_template=prompt_template, 
+                           query_text=query_text, 
+                           context_text=context_text))
+
     sources = [doc.metadata.get("id", None) for doc, _score in results]
     formatted_response = f"Response: {response_text}\nSources: {sources}"
     print(formatted_response)
     return response_text.content, context_arr
 
+async def evaluation(chat_model, prompt_template, query_text, context_text):
+    # Initialising Langfuse
+    langfuse_client = Langfuse(
+        public_key=os.getenv("LANGFUSE_PUBLIC_KEY"),
+        secret_key=os.getenv("LANGFUSE_SECRET_KEY")
+    )
+    # langfuse & DeepEval integration
+    llm_chain = LLMChain(llm=chat_model, prompt=prompt_template)
+    evaluated_chain = EvaluatedRAGChain(llm_chain, langfuse_client=langfuse_client)
+    result = evaluated_chain.run_with_evaluation(
+        query=query_text,
+        context=context_text
+    )
+    print(f"Response: {result['response']}")
+    print(f"Evaluation scores: {result['evaluation']}")
+    print(f"Trace ID: {result['trace_id']}")
 
 if __name__ == "__main__":
     main()

@@ -11,3 +11,4 @@ __pycache__
 .deepeval-cache.json
 .venv
 .vector_db
+notes.txt

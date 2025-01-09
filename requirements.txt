@@ -10,3 +10,4 @@ torch
 deepeval
 black
 pandas
+langfuse

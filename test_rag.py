@@ -48,7 +48,7 @@ def test_ticket_to_ride_rules():
 
 def test_monopoly_ticket_ride_combination():
     test_case = query_and_generate_test_case(
-        question="how much money I should earn from Monopoly game to travel in train to travel around the world?",
+        question="how much money I should earn from Monopoly game to travel around the world by train?",
         expected_response='The context provided does not mention "Phileas" or any specific monetary goal related to traveling by train. The rules given focus on gameplay mechanics for Monopoly, including the use of dice, purchasing property, and utilizing the Speed Die. They do not specify the amount of money needed for travel to any external location, such as "Phileas." Thus, it\'s not possible to answer your question based solely on the provided information.',
     )
     
