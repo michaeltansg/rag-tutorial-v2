@@ -3,7 +3,9 @@ from deepeval.metrics import (
 )
 from deepeval.dataset import EvaluationDataset
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 dataset = EvaluationDataset()
 
@@ -17,5 +19,5 @@ dataset.add_test_cases_from_json_file(
     retrieval_context_key_name="retrieval_context",
 )
 
-answer_relevancy_metric = AnswerRelevancyMetric(threshold=0.5, model=os.get('INFERENCE_MODEL'))
+answer_relevancy_metric = AnswerRelevancyMetric(threshold=0.5, model=os.getenv('INFERENCE_MODEL'))
 results = dataset.evaluate(metrics=[answer_relevancy_metric])
