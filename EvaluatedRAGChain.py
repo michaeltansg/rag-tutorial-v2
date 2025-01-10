@@ -1,9 +1,9 @@
 from typing import Any, Dict
 from deepeval.metrics import HallucinationMetric, AnswerRelevancyMetric
+from deepeval.test_case import LLMTestCase
 from langchain.chains.llm import LLMChain
 from langfuse import Langfuse
 from langfuse.client import StatefulTraceClient
-from deepeval.test_case import LLMTestCase
 
 class EvaluatedRAGChain:
     def __init__(self, llm_chain: LLMChain, langfuse_client: Langfuse):
@@ -105,8 +105,7 @@ class EvaluatedRAGChain:
             }
             
         except Exception as e:
-            # trace.error(error=str(e))
+            print(e)
             raise
         finally:
             print("Complete tracing")
-            # trace.complete()
