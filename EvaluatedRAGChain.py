@@ -109,3 +109,4 @@ class EvaluatedRAGChain:
             raise
         finally:
             print("Complete tracing")
+            self.langfuse_client.flush()
